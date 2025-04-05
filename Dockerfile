@@ -9,7 +9,7 @@ COPY tsconfig.json ./
 COPY src ./src
 RUN npm run build
 
-FROM mcr.microsoft.com/playwright
+FROM mcr.microsoft.com/playwright:latest
 
 WORKDIR /app
 
