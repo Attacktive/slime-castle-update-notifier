@@ -2,6 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea8593e81db2440b870f8d92559427dc)](https://app.codacy.com/gh/Attacktive/slime-castle-update-notifier?utm_source=github.com&utm_medium=referral&utm_content=Attacktive/slime-castle-update-notifier&utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/attacktive/slime-castle-update-notifier/badge)](https://www.codefactor.io/repository/github/attacktive/slime-castle-update-notifier)
+[![ESLint](https://github.com/Attacktive/slime-castle-update-notifier/actions/workflows/eslint.yaml/badge.svg)](https://github.com/Attacktive/slime-castle-update-notifier/actions/workflows/eslint.yaml)
 [![Package as a Docker Image](https://github.com/Attacktive/slime-castle-update-notifier/actions/workflows/package.yaml/badge.svg)](https://github.com/Attacktive/slime-castle-update-notifier/actions/workflows/package.yaml)
 
 An application that monitors *Slime Castle — Idle TD Game* for updates on Google Play Store and sends notifications through Discord and Slack.
