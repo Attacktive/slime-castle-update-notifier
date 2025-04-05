@@ -34,9 +34,9 @@ jobs:
           sudo apt remove containerd.io
           sudo apt update
           sudo apt install -y containerd
-          nerdctl build -t ghcr.io/${{ github.repository_owner }}/slime-castle-update-notifier:${{ github.ref_name }} .
+          docker build -t ghcr.io/${{ github.repository_owner }}/slime-castle-update-notifier:${{ github.ref_name }} .
       - name: 'Push Docker Image to GitHub Packages'
-        run: 'nerdctl push ghcr.io/${{ github.repository_owner }}/slime-castle-update-notifier:${{ github.ref_name }}'
+        run: 'docker push ghcr.io/${{ github.repository_owner }}/slime-castle-update-notifier:${{ github.ref_name }}'
 
 #   build:
 #     runs-on: ubuntu-latest
