@@ -34,6 +34,7 @@ jobs:
           sudo apt remove containerd.io
           sudo apt update
           sudo apt install -y containerd
+          sudo systemctl enable docker --now
           docker build -t ghcr.io/${{ github.repository_owner }}/slime-castle-update-notifier:${{ github.ref_name }} .
       - name: 'Push Docker Image to GitHub Packages'
         run: 'docker push ghcr.io/${{ github.repository_owner }}/slime-castle-update-notifier:${{ github.ref_name }}'
