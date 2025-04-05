@@ -2,8 +2,9 @@
 	"name": "slime-castle-update-notifier",
 	"version": "1.0.0",
 	"scripts": {
-		"build": "tsc",
-		"start": "node --env-file=.env.local -r ts-node/register src/index.ts",
+		"build": "tsc; cp .env ./dist",
+		"dev": "node --env-file=.env.dev -r ts-node/register src/index.ts",
+		"start": "node dist/index.js",
 		"lint": "eslint",
 		"watch": "tsc -w",
 		"test": "echo \"Error: no test specified\" && exit 1"

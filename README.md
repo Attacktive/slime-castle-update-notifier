@@ -17,7 +17,7 @@ An application that monitors *Slime Castle — Idle TD Game* for updates on Goog
 
 ## Environment Variables
 
-Create a `.env.local` file with the following variables:
+Create a `.env.dev` file with the following variables:
 
 ```env
 DISCORD_TOKEN=your_discord_bot_token
