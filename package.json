@@ -2,7 +2,7 @@
 	"name": "slime-castle-update-notifier",
 	"version": "1.0.0",
 	"scripts": {
-		"build": "tsc; cp .env ./dist",
+		"build": "tsc",
 		"dev": "node --env-file=.env.dev -r ts-node/register src/index.ts",
 		"start": "node dist/index.js",
 		"lint": "eslint",
