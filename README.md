@@ -43,5 +43,5 @@ SLACK_CHANNEL_ID=your_slack_channel_id
 
 For development with hot-reload:
 ```bash
-npm run start
+npm run dev
 ```
