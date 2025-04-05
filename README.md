@@ -1,5 +1,7 @@
 # Slime Castle Update Notifier
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea8593e81db2440b870f8d92559427dc)](https://app.codacy.com/gh/Attacktive/slime-castle-update-notifier?utm_source=github.com&utm_medium=referral&utm_content=Attacktive/slime-castle-update-notifier&utm_campaign=Badge_Grade)
+
 An application that monitors *Slime Castle — Idle TD Game* for updates on Google Play Store and sends notifications through Discord and Slack.
 
 ## Features
