@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: 'ghcr.io'
-  IMAGE_NAME: 'slime-castle-update-notifier'
+  IMAGE_NAME: "${{ github.repository }}"
 
 jobs:
   package:
