@@ -14,12 +14,13 @@ FROM mcr.microsoft.com/playwright
 WORKDIR /app
 
 COPY package*.json ./
+RUN npm install --global playwright
 RUN npm ci --omit=dev
 
 RUN mkdir ./dist
 COPY --from=builder /app/dist ./dist
 
-RUN npx playwright install chromium
+RUN playwright install
 
 RUN addgroup --system appuser && adduser --system --group appuser
 USER appuser
