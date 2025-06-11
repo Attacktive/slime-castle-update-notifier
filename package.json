@@ -20,7 +20,7 @@
 		"@slack/web-api": "^7.9.2",
 		"axios": "^1.9.0",
 		"discord.js": "^14.19.3",
-		"playwright": "^1.52.0"
+		"playwright": "^1.53.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.28.0",
