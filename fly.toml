@@ -1,0 +1,18 @@
+# fly.toml app configuration file generated for slime-castle-update-notifier on 2025-07-02T18:34:16+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'slime-castle-update-notifier'
+primary_region = 'sjc'
+swap_size_mb = 1024
+
+[build]
+
+[deploy]
+  strategy = 'rolling'
+
+[[vm]]
+  memory = '256MB'
+  cpu_kind = 'shared'
+  cpus = 1

@@ -20,21 +20,21 @@ jobs:
       - name: 'Checkout'
         uses: 'actions/checkout@v4'
       - name: 'Authenticate to GitHub Packages'
-        uses: 'docker/login-action@3.4.0'
+        uses: 'docker/login-action@3d100841f68d4548bf57e52eb27bd33ec5069f55'
         with:
           registry: 'ghcr.io'
           username: "${{ github.actor }}"
           password: "${{ secrets.GITHUB_TOKEN }}"
       - name: 'Extract metadata (tags, labels) for Docker'
         id: 'meta'
-        uses: 'docker/metadata-action@5.7.0'
+        uses: 'docker/metadata-action@be19121bfd18b9c1ac415d9571d4f67b9b357886'
         with:
           images: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
       - name: 'Build and push Docker image'
         id: 'push'
-        uses: 'docker/build-push-action@v6.18.0'
+        uses: 'docker/build-push-action@v263435318d21b8e681c14492fe198d362a7d2c83'
         with:
-          context: .
+          context: '.'
           push: true
           tags: "${{ steps.meta.outputs.tags }}"
           labels: "${{ steps.meta.outputs.labels }}"
