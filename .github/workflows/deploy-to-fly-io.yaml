@@ -1,7 +1,7 @@
 name: 'Deploy to Fly.io'
 on:
   workflow_run:
-    workflows: ['Push Image']
+    workflows: ['Package as a Docker Image']
     types: ['completed']
 jobs:
   deploy:
@@ -19,4 +19,4 @@ jobs:
       - name: 'Set scale count'
         run: 'flyctl scale count 1'
       - name: 'Deploy to Fly.io'
-        run: 'flyctl deploy --image ghcr.io/attacktive/troubleshooter-editor-back-end:latest --ha=false'
+        run: 'flyctl deploy --image ghcr.io/attacktive/slime-castle-update-notifier:latest --ha=false'
