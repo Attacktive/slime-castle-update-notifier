@@ -65,15 +65,17 @@ const retrieveVersion = async () => {
 		throw new Error(`No result found for app ID: ${APP_ID}`);
 	}
 
-	const ids = results.map(({ trackId }) => trackId);
-	console.warn(`More than one result found!`, ids);
-	if (!ids.includes(APP_ID)) {
-		throw new Error(`No relevant result found for app ID: ${APP_ID}`);
+	const metadata = results.find(({ trackId }) => trackId === APP_ID);
+	if (!metadata) {
+		const message = `No relevant result found for app ID: ${APP_ID}`;
+		const ids = results.map(({ trackId }) => trackId);
+
+		console.warn(message, ids);
+
+		throw new Error(message);
 	}
 
-	const { version } = results.find(({ trackId }) => trackId === APP_ID)!;
-
-	return version;
+	return metadata.version;
 };
 
 export { retrieveVersion };
