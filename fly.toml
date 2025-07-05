@@ -7,8 +7,6 @@ app = 'slime-castle-update-notifier'
 primary_region = 'sjc'
 swap_size_mb = 1024
 
-[build]
-
 [deploy]
   strategy = 'rolling'
 
@@ -16,3 +14,6 @@ swap_size_mb = 1024
   memory = '256MB'
   cpu_kind = 'shared'
   cpus = 1
+
+[env]
+NODE_ENV = "production"

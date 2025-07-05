@@ -25,9 +25,4 @@ RUN playwright install
 RUN addgroup --system appuser && adduser --system --group appuser
 USER appuser
 
-ARG DISCORD_TOKEN
-ARG DISCORD_CHANNEL_ID
-ARG SLACK_TOKEN
-ARG SLACK_CHANNEL_ID
-
 CMD ["npm", "run", "start"]
