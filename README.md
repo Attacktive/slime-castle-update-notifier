@@ -30,20 +30,6 @@ DISCORD_CHANNEL_ID=your_discord_channel_id
 SLACK_TOKEN=your_slack_bot_token
 SLACK_CHANNEL_ID=your_slack_channel_id
 ```
-
-## Installation
-
-1. Clone the repository
-2. Install dependencies:
-	```bash
-	npm install
-	```
-3. Install the internal browsers for Playwright:
-	```bash
-	npx playwright install
-	```
-	See the [System requirements of Playwright](https://playwright.dev/docs/intro#system-requirements)
-
 ## Usage
 
 For development with hot-reload:
