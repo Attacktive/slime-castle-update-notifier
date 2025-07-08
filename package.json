@@ -1,6 +1,6 @@
 {
 	"name": "slime-castle-update-notifier",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"scripts": {
 		"build": "tsc",
 		"dev": "node --env-file=.env.dev -r ts-node/register src/index.ts",
