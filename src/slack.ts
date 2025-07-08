@@ -39,7 +39,7 @@ export const useSlack = (enabled = true) => {
 		return undefined;
 	};
 
-	const notify = async (currentVersion?: string) => {
+	const notify = async (currentVersion: string) => {
 		if (!enabled) {
 			throw new Error("Slack is not enabled.");
 		}
@@ -51,12 +51,10 @@ export const useSlack = (enabled = true) => {
 
 		let message: ChatPostMessageResponse | undefined = undefined;
 
-		let tsOfLoading: string | undefined;
 		try {
-			const loadingMessage = await webClient.chat.postMessage({ channel, text: "💻 Parsing store page..." });
-			tsOfLoading = loadingMessage.ts;
-
 			const lastVersion = await retrieveLastVersion(channel);
+			console.debug(`[Slack] The last version: ${lastVersion}`);
+
 			if (currentVersion !== lastVersion) {
 				message = await webClient.chat.postMessage({ channel, text: `${MESSAGE_LABEL}: \`${currentVersion}\`` });
 			}
@@ -72,10 +70,6 @@ export const useSlack = (enabled = true) => {
 			}
 
 			throw error;
-		} finally {
-			if (tsOfLoading) {
-				await webClient.chat.delete({ channel, ts: tsOfLoading });
-			}
 		}
 
 		return message;

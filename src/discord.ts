@@ -18,7 +18,7 @@ export const useDiscord = (enabled = true) => {
 
 	const MESSAGE_LABEL = "The current version";
 
-	const parseLastVersion = async (channel: SendableChannels): Promise<string> => {
+	const parseLastVersion = async (channel: SendableChannels) => {
 		 // TODO: It only checks the last 100 messages for now. 😏
 		const messages = await channel.messages.fetch({ limit: 100 });
 		for (const message of messages) {
@@ -35,7 +35,9 @@ export const useDiscord = (enabled = true) => {
 			}
 		}
 
-		throw new Error("Failed to parse the HTML document.")
+		console.warn("Failed to find the last announced version.")
+
+		return undefined;
 	};
 
 	const CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
@@ -47,7 +49,7 @@ export const useDiscord = (enabled = true) => {
 		return await channel.send(`${MESSAGE_LABEL}: \`${version}\``);
 	}
 
-	const notifyIfUpdated = async (currentVersion?: string, channel?: Channel) => {
+	const notifyIfUpdated = async (currentVersion: string, channel?: Channel) => {
 		if (!enabled) {
 			throw new Error("Discord is not enabled.");
 		}
@@ -62,14 +64,12 @@ export const useDiscord = (enabled = true) => {
 			throw new Error(`The channel ${CHANNEL_ID} is not sendable.`);
 		}
 
-		const loadingMessage = await targetChannel.send("💻 Parsing store page...");
 		const lastVersion = await parseLastVersion(targetChannel);
+		console.debug(`[Discord] The last version: ${lastVersion}`);
 
 		if (currentVersion !== lastVersion) {
-			await notify(lastVersion, targetChannel);
+			return await notify(currentVersion, targetChannel);
 		}
-
-		return await loadingMessage.delete();
 	};
 
 	const triggers = ["version", "update"] as const;
