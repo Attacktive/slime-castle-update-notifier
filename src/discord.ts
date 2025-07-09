@@ -124,5 +124,7 @@ export const useDiscord = (enabled = true) => {
 			.catch(error => console.error("Login failed:", error));
 	}
 
-	return { notifyIfUpdated, loginSucceeded };
+	const isLoggedIn = () => loginSucceeded;
+
+	return { notifyIfUpdated, isLoggedIn };
 };

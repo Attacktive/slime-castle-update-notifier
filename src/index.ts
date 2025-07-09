@@ -7,7 +7,7 @@ console.debug(`The Node.js environment: ${JSON.stringify(process.env, null, 2)}`
 const toEnableDiscord = true;
 const toEnableSlack = true;
 
-const { notifyIfUpdated: notifyIfUpdatedViaDiscord, loginSucceeded: discordLoginSucceeded } = useDiscord(toEnableDiscord);
+const { notifyIfUpdated: notifyIfUpdatedViaDiscord, isLoggedIn: isLoggedInToDiscord } = useDiscord(toEnableDiscord);
 const { notify: notifyViaSlack } = useSlack(toEnableSlack);
 
 const execute = () => {
@@ -15,7 +15,7 @@ const execute = () => {
 		.then(currentVersion => {
 			console.log(`The current version is "${currentVersion}".`);
 
-			if (discordLoginSucceeded) {
+			if (isLoggedInToDiscord()) {
 				notifyIfUpdatedViaDiscord(currentVersion)
 					.then(message => console.log("Notified via Discord", message))
 					.catch(console.error);
