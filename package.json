@@ -19,7 +19,7 @@
 		"@slack/oauth": "^3.0.3",
 		"@slack/web-api": "^7.9.3",
 		"axios": "^1.11.0",
-		"discord.js": "^14.22.0"
+		"discord.js": "^14.22.1"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.33.0",
